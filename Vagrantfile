@@ -20,4 +20,8 @@ Vagrant.configure("2") do |config|
   # Đồng bộ thư mục 'src' trên máy thật với thư mục '/var/www/project' trên máy ảo.
   # Bất kỳ thay đổi nào trong thư mục 'src' sẽ ngay lập tức được phản ánh trong máy ảo.
   config.vm.synced_folder "./src", "/var/www/project"
+
+ # 4. Cấu hình Provisioning:
+ # Chạy kịch bản bootstrap.sh để tự động cài đặt Apache
+ config.vm.provision "shell", path: "scripts/bootstrap.sh"
 end
