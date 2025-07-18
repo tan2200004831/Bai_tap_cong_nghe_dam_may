@@ -31,4 +31,9 @@ Vagrant.configure("2") do |config|
  # Chạy kịch bản bootstrap.sh để tự động cài đặt Apache voi giu lai provisioning cu va them cai moi
  config.vm.provision "shell", path: "scripts/bootstrap.sh"
  config.vm.provision "shell", path: "scripts/install-node.sh" # Them dong nay
+ # ... các dòng cấu hình khác ...
+ config.vm.provision "shell", path: "scripts/bootstrap.sh"
+ config.vm.provision "shell", path: "scripts/install-node.sh"
+ config.vm.provision "shell", path: "scripts/install-docker.sh" # Thêm dòng này
+ # ...
 end
