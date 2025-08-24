@@ -1,15 +1,16 @@
-const express = require('express');
-const path = require('path');
+const express = require("express");
+const path = require("path");
 
 const app = express();
 const PORT = 5000;
 
 // Phục vụ file tĩnh
-app.use(express.static(path.join(__dirname, 'client/build')));
+app.use(express.static(path.join(__dirname, "client/build")));
 
 // CÁCH 1: Dùng regex rõ ràng (tốt nhất)
-app.get(/.*/, (req, res) => {  // <-- Sử dụng regex literal
-    res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+app.get(/.*/, (req, res) => {
+  // <-- Sử dụng regex literal
+  res.sendFile(path.join(__dirname, "client/build", "index.html"));
 });
 
 // Hoặc CÁCH 2: Dùng parameter
@@ -17,6 +18,15 @@ app.get(/.*/, (req, res) => {  // <-- Sử dụng regex literal
 //     res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
 // });
 
-app.listen(PORT, '0.0.0.0', () => {
-    console.log(`Server running on http://localhost:${PORT}`);
+app.listen(PORT, "0.0.0.0", () => {
+  console.log(`Server running on http://localhost:${PORT}`);
 });
+
+// ... (phần code express.static và app.get('*') giữ nguyên) ...
+
+// Thêm đoạn code này VÀO TRƯỚC app.get('*')
+app.get("/api/time", (req, res) => {
+  res.json({ time: new Date().toLocaleTimeString() });
+});
+
+// ... (phần app.listen ở cuối) ...

@@ -9,7 +9,7 @@ function Profile() {
         alt="Profile"
         className="rounded-circle mb-3"
       />
-      <h1>Your Name</h1>
+      <h1>My Dockerized Name</h1>
       <p className="lead text-muted">
         Full-Stack Developer | Cloud Enthusiast | Lifelong Learner
       </p>
